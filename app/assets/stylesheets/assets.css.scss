@@ -1,0 +1,56 @@
+// Place all the styles related to the assets controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+div#assets_main {
+	position: relative;
+	width: 100%;
+	min-height: 480px;
+	padding: 12px;
+	border: 6px solid #ddd;
+	@include border-radius(8px);
+	
+	& > a.assets_close {
+		display: inline-block;
+		position: absolute;
+		width: 24px;
+		height: 24px;
+		top: -12px;
+		right: -12px;
+		z-index: 999;
+		text-indent: -9999px;
+		background: image-url("image_sprite.png") no-repeat -96px 0px; 	
+		&:hover {background: image-url("image_sprite.png") no-repeat -120px 0px;}
+  }	  
+
+	div.entries {
+		height: 360px;
+		padding: 4px 8px;
+		overflow: vertical;
+		border: 1px solid #ddd;
+		@include border-radius(8px);		
+
+		.ui-selecting { background: #FECA40; }	
+		.ui-selected { background: #F39814; color: white; }		
+
+		div.entry {
+			margin: 1px 0;	
+			padding: 4px 0;				
+		}
+	}	
+
+	div.actions {
+		margin-top: 12px;
+
+		a.file_link {
+			display: inline-block;
+			background: none;
+			text-indent: -78px;
+		}
+		input.file_field {
+			font-size: 13px;
+			color: #aaa;
+			width: 200%;
+		}
+	}		
+}

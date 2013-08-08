@@ -1,0 +1,30 @@
+
+<div id='services_main'>
+	<div class='row'>
+		<div class='large-8 large-centered columns' style='text-align: center'>
+			<!-- <div class='row'>
+				<%#= image_tag 'daas_logo.png' %>
+			</div> -->
+			<div class='row collapse' style=''>
+				<%= form_tag services_path, method: :get, class: 'custom' do  %>
+				<div class='large-3 small-3 columns'>
+					<%= label_tag :name, 'Service : //', class: 'button secondary radius prefix'  %>					
+				</div>
+				<div class='large-6 small-6 columns'>
+					<%= select_tag 'name', options_for_select(Service::SERVICES, 0) %>			
+				</div>
+				<div class='large-3 small-3 columns'>
+					<%= submit_tag 'Go', class: 'button secondary radius postfix' %>	
+				</div>
+				<% end %>
+			</div>
+			<div class='row' style='margin-top: 120px'>
+				<%= image_tag 'daas_logo1.png' %>
+			</div>
+			<div class='row' style='margin-top: 180px'>
+				<h5 class='subheader'>Have awesome solution? Come and talk with us.</h5>
+			</div>
+		</div>
+	</div>
+</div>
+

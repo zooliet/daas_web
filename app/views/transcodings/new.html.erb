@@ -1,0 +1,88 @@
+<div id="transcodings_main">
+	<h2>DAAS::Transcoding</h2>
+
+	<%= form_for Transcoding.new, html: {class: 'custom'} do |f| %>
+	<div class='row' style='margin-top: 48px'>
+		<div class='large-6 columns'>
+			<div class="section-container accordion input" data-section="accordion">
+			  <div class='section active'>
+			    <h5 class="title" data-section-title>Input</h5>
+			    <div class="content" data-section-content>
+						<div class='row'>
+							<div class='small-12 columns'>
+								<%= f.label :infile, 'Name' %>
+								<%= f.text_field :infile, id: 'infile' %>								
+							</div>
+						</div>
+			    </div>
+			  </div>
+			  <div class='section details'>
+			  </div>
+			</div>
+		</div>
+
+		<div class='large-6 columns'>
+			<div class="section-container accordion output" data-section="accordion">
+			  <div class='section active'>
+			    <h5 class="title" data-section-title>Output</h5>
+			    <div class="content" data-section-content>
+						<div class='row'>
+							<div class='small-12 columns'>
+								<%= f.label :outfile, 'Name' %>
+								<%= f.text_field :outfile, id: 'outfile' %>								
+							</div>
+						</div>
+			    </div>
+			  </div>
+			  <div class='section active'>
+			    <h5 class="title" data-section-title>► Basic options</h5>
+			    <div class="content" data-section-content>
+						<div class='row'>
+							<div class='small-4 columns'>
+								<%= f.label :format %>
+								<%= f.select :format, options_for_select(Transcoding::Format, 0) %>									
+								<%#= select_tag 'name', options_for_select(Service.all(&:name), 0) %>											
+							</div>
+							<div class='small-4 columns'>
+								<%= f.label :quality %>
+								<%= f.select :quality, options_for_select(Transcoding::Quality, 0) %>									
+							</div>
+							<div class='small-4 columns'>
+								<%= f.label :scale %>
+								<%= f.text_field :scale %>								
+							</div>
+						</div>
+			    </div>
+			  </div>
+			  <div class='section advanced'>
+			    <h5 class="title" data-section-title>► Advanced options</h5>
+			    <div class="content" data-section-content>
+						<div class='row'>
+							<div class='small-4 columns'>
+								<%= f.label :xxx %>
+								<%= f.text_field :xxx %>								
+							</div>
+							<div class='small-4 columns'>
+								<%= f.label :yyy %>
+								<%= f.text_field :yyy %>								
+							</div>
+							<div class='small-4 columns'>
+								<%= f.label :zzz %>
+								<%= f.text_field :zzz %>								
+							</div>
+						</div>
+			    </div>
+			  </div>
+
+			</div>
+		</div>
+	</div>
+	
+	<div class='row' style='margin-top: 24px'>
+		<div class='large-12 columns' style='text-align: center'>
+			<%= f.submit "DAAS::Transcode", class: 'button secondary radius' %>
+		</div>
+	</div>
+	<% end %>
+
+</div>

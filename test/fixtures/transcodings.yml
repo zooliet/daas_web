@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  infile: MyString
+  outfile: MyString
+  format: MyString
+  state: MyString
+  properties: 
+
+two:
+  infile: MyString
+  outfile: MyString
+  format: MyString
+  state: MyString
+  properties: 

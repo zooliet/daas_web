@@ -1,0 +1,13 @@
+<h5 class="title" data-section-title>► Details</h5>
+<div class="content" data-section-content>
+	<% media_properties(asset).each do |property| %>
+	<div class='row'>
+		<div class='small-12 columns'>
+			<%= label_tag property[:name] %>
+			<%= text_field_tag property[:name], property[:value] || 'NA' %>									
+		</div>
+	</div>									
+	<% end %>
+</div>
+
+

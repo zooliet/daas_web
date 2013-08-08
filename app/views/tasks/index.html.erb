@@ -1,0 +1,75 @@
+<div class='panel' id='task'>
+	<%= form_tag tasks_path, multipart: true, class: 'custom'  do %>
+		<div class='row'>
+			<div class='large-8 large-centered columns'>
+				<div class="field">
+					<label for='task[media]'>File to upload</label>
+					<a href='#' class='button secondary radius prefix file_link'>
+						<%= file_field_tag 'task[media]', class: 'file_field' %>
+					</a>					
+				</div>
+
+				<div class="field">			
+					<label for='task[todo]'>Action to perform</label>
+					<%= select_tag 'task[todo]', options_for_select(Task::TODOS, 0), class: 'customDropdown' %>			
+				</div>
+
+				<div class="field">			
+					<%= submit_tag "Submit", :name => nil, class: 'button secondary radius postfix' %>
+				</div>
+			</div>
+		</div>
+	<% end %>
+</div>
+
+<div class='row'>
+	<div class='large-12' style='text-align: center' id='result'>
+		<h1>Result window</h1>
+	</div>	
+</div>
+
+<!-- <div class='panel' id='tasks'>
+	<%# @tasks.each_with_index do |task, i| %>
+		<div class='row' style='margin-bottom: 12px'>
+			<div class='large-10 small-10 columns'>
+				<div class='row'>
+					<div class='small-1 columns'>
+						<span><%#= i+1 %>.</span>
+					</div>
+					<div class='small-11 columns'>
+						<span><%#= File.basename(task.media.path) %></span>
+					</div>
+					<div class='small-3 small-offset-1 columns'>
+						<span><%#= task.category || "Video" %></span>
+					</div>
+					<div class='small-8 columns'>
+						<span><%#= task.todo %></span>
+					</div>
+				</div>
+			</div>
+			<div class='large-2 small-2 columns'><%#= link_to 'Reload', '#' %></div>
+		</div>
+	<%# end %>
+</div> -->
+
+
+<%= content_for :left do %>
+	<div class='panel'>
+		<h5 class='subheader'>DaaS services</h5>
+		<ul class="no-bullet">
+			<li>
+				<ul class="">
+					<li>Video transcoding</li>
+					<li>2D to 3D conversion</li>
+					<li>Face matching</li>			
+					<li>RF fingerprinting</li>			
+					<li>FFT analysis</li>							
+					<li>SDR</li>			
+					<li>Detecting thesis plagiarism </li>			
+					<li>Notes correction</li>								
+					<li>Motion replay tracking picture</li>								
+				</ul>				
+			</li>
+		</ul>
+	</div>
+<% end %>

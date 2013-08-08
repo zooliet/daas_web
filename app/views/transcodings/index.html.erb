@@ -1,0 +1,28 @@
+<div id="transcodings_main">
+	<h2>DAAS::Transcoding</h2>
+
+	<div class='panel transcodings'>
+		<% @transcodings.each_with_index do |transcoding, index| %>
+			<div class='row transcoding' style='padding: 8px 4px'>
+				<div class='large-1 small-2 columns' sytle='text-align: center'>
+					<span><%= index+1 %>.</span>
+				</div>
+				<div class='large-11 small-10 columns'>
+					<div class='row'>
+						<div class='large-6 columns'><span><%= transcoding.infile %></span></div>
+						<div class='large-3 columns'><span><%= "=> #{transcoding.format}" %></span></div>
+						<div class='large-3 columns'><span><%= transcoding.state || '---' %></span></div>
+					</div>				
+				</div>
+			</div>		
+		<% end %>
+	</div>
+	
+	<div class='row'>
+		<div class='small-8 small-centered columns' style='margin-top: 24px; text-align: center'>
+			<%= link_to 'DAAS::Transcoding::New', new_transcoding_path, 
+									class: 'button secondary radius' %>
+		</div>
+	</div>
+
+</div>

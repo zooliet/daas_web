@@ -1,0 +1,71 @@
+<!-- asset_dir = absolute_path -->
+<!-- relative_path() = full path에서 "#{Rails.root}/public/user_assets/"를 제외한 부분  -->
+
+<%= link_to 'Close', root_path, class: 'assets_close' %>
+<div class='row'>
+	<div class='large-10 large-centered small-12 small-centered columns'>
+		<div class='entries'>
+			<h5>
+				<% path = relative_path(asset_dir, "").try(:gsub, /\/$/, '').try(:gsub, '/', ' >> ') %>
+				<%= path.present? ?  "Top >> #{path}" :  "Top" %>
+			</h5>				
+			<div class='row'>
+				<div class='large-8 columns'>
+					<% asset_list(asset_dir).each do |asset| %>
+						<div class='entry'>
+							<%= link_to(asset[:name], 
+												assets_path(relative_path(asset_dir, asset[:name])), 
+												class: asset[:kind]) %>			
+							</div>
+					<% end %>											
+				</div>
+				<div class='large-4 columns'>
+				</div>				
+			</div>
+		</div>
+
+		<div class='actions'>
+			<div class='row' style='text-align: center'>
+				<div class='large-6 columns'>
+					<div class='row collapse'>
+						<div class='large-3 small-3 columns'>
+							<%= form_tag create_assets_path, id: 'make_folder' do %>											
+								<%= label_tag :dir_name, 'Folder://', class: 'button secondary radius prefix'  %>
+								<%= hidden_field_tag :path, asset_dir %>
+								<%= hidden_field_tag :kind, 'dir' %>											
+						</div>
+						<div class='large-6 small-6 columns'>
+								<%= text_field_tag :dir_name, nil, placeholder: 'type folder name' %>
+						</div>
+
+						<div class='large-3 small-3 columns'>
+								<%= submit_tag :create, class: 'button secondary radius postfix' %>											
+							<% end %>
+						</div>	
+					</div>						
+				</div>
+				<div class='large-6 columns'>
+					<div class='row collapse'>
+						<div class='large-3 small-3 columns'>
+							<%= form_tag create_assets_path, id: 'file_upload', multipart: true do %>							
+								<%= hidden_field_tag :path, asset_dir %>
+								<%= hidden_field_tag :kind, 'file' %>					
+								<%= label_tag :file_name, 'File://', class: 'button secondary radius prefix'  %>						
+						</div>
+						<div class='large-6 small-6 columns'>
+							<a href='#' class='button secondary radius prefix file_link'>
+								<%= file_field_tag :file_name, class: 'file_field' %>
+							</a>					
+						</div>					
+						<div class='large-3 small-3 columns'>
+								<%= submit_tag :upload, class: 'button secondary radius postfix' %>						
+							<% end %>				
+						</div>	
+					</div>						
+				</div>					
+			</div>								
+		</div>			
+	</div>
+</div>
+
+

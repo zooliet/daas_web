@@ -1,0 +1,36 @@
+// Place all the styles related to the transcodings controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+div#transcodings_main {
+	div.input, div.output {
+		div.section {
+			margin-top: -4px;
+			h5.title {
+				padding: 8px 12px;
+			}
+		}
+		
+		div.section.details {
+			display: none;
+			input[type='text'] {
+				border: none;
+			}
+		}
+		
+		div.section.advanced {
+			
+		}
+	}
+		
+	div.transcodings {
+		div.transcoding {
+			span {
+				line-height: 18px;
+			}
+		}
+	}
+}
+
+
+
