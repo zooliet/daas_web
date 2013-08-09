@@ -15,5 +15,5 @@
 /log/*.log
 /tmp
 
-/public/user_assets
+/public/user_assets/*
 /public/uploads
